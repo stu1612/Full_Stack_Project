@@ -1,0 +1,95 @@
+{% extends 'base.html' %} {% load staticfiles %} {% block content %}
+<!-- Page Content -->
+<div class="container guide">
+    <h3 class="main-header">@ <span class="highlight">Graphic Design</span> our goal is to design inspiring and unique communication messages to your customers</h3>
+    <div class="row show_content">
+        <div class="col-md-4">
+            <div id="flip"><button class="drop_btn">Step 1</button></div>
+            <div id="panel">
+                <p>"Search" design type and add to cart</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="flip_2"><button class="drop_btn">Step 2</button></div>
+            <div id="panel_2">
+                <p>Go to "Cart" and process your design specifications and payment</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="flip_3"><button class="drop_btn">Step 3</button></div>
+            <div id="panel_3">
+                <p>Once the design is completed, a copy will be attached to "My_Projects"</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" id="services-page">
+   
+
+
+    <!-- Project One -->
+
+    <div class="row">
+        {% for service in services %}
+        <div class="col-sm-7">
+            <div class="product-image" style="background-image: url('{{ service.service_image }}')"></div>
+            </a>
+        </div>
+        <div class="col-sm-5">
+            <h2>{{ service.title }}</h2>
+            <p class="service-description">{{ service.description }}</p>
+            <p><strong>Price: {{ service.price }}</strong></p>
+            <p><strong>Size: {{ service.size }}</strong></p>
+            <p><strong>Production Quantity: {{ service.quantity }}</strong></p>
+            <hr>
+            <p class="service-description">{{ service.information }}</p>
+            <form method="post" action="{% url 'add_to_cart' service.id %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                    <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">Add</button>
+                        </span>
+                </div>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- /.row -->
+    
+    <hr> 
+</div>
+
+<div class="container-fluid" id="examples" style="text-align:center;margin-top:50px">
+    <h3 class="main-header" style="margin-bottom:100px">Not that we are showing off - but look at how good we are !</h3>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
+            <img src="https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/landing-page-football-logo-maker/greek-sports-logo-maker-football-768x768.png">
+            <h4>Logo Design</h4>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
+            <img src="https://www.uprinting.com/blog/wp-content/uploads/2010/12/Flyer-Design-Ideas-02.png">
+            <h4>Flyer Design</h4>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
+            <img src="https://www.solopress.com/blog/wp-content/uploads/2018/09/business-cards-perforated.jpg">
+            <h4>Business Cards</h4>
+        </div>
+    </div>
+    <div class="row" style="margin-top:50px">
+        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
+            <img src="https://cdn.idevie.com/wp-content/uploads/2019/05/landingpagedesign1.jpg">
+            <h4>Landing page Design</h4>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
+            <img src="https://image.freepik.com/free-vector/letterhead-template-design_1142-370.jpg">
+            <h4>Letterhead Design</h4>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
+            <img src="https://images4.newscred.com/Zz1jMjFiNzcyZjExZmJkYjExNjM2MzE1ZGY5M2NkMWU2Yg==">
+            <h4>Email Marketing</h4>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
