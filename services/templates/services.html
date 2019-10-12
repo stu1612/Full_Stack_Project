@@ -24,15 +24,19 @@
     </div>
 </div>
 <div class="container" id="services-page">
+    <div class="display" id="search-btn">
+        <form action="{% url 'search' %}" method="GET">
+            <input type="text" name="q" placeholder="search design services" class="input_search">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </div>
    
-
-
     <!-- Project One -->
 
     <div class="row">
         {% for service in services %}
         <div class="col-sm-7">
-            <div class="product-image" style="background-image: url('{{ service.service_image }}')"></div>
+            <div class="product-image" style="background-image: url('{{ service.service.image }}')"></div>
             </a>
         </div>
         <div class="col-sm-5">
