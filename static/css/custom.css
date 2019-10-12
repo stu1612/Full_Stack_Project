@@ -340,6 +340,17 @@ textarea {
 
     .product-image {
         height: 400px;
+        width: 90%;
+        margin: auto;
+    }
+    
+    .service-text {
+        width:80%;
+        margin: auto;
+    }
+    
+    .service-text h2 {
+        margin-top: 20px;
     }
 }
 
@@ -428,6 +439,10 @@ textarea {
         margin: auto;
         width: 80%;
         margin-bottom: 5px;
+    }
+    
+     .service-text {
+        width:90%;
     }
 
     .product-image {

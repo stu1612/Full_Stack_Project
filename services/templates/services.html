@@ -30,70 +30,71 @@
             <button class="btn btn-primary" type="submit">Search</button>
         </form>
     </div>
-   
-    <!-- Project One -->
-
-    <div class="row">
-        {% for service in services %}
-        <div class="col-sm-7">
-            <div class="product-image" style="background-image: url('{{ service.service.image }}')"></div>
-            </a>
-        </div>
-        <div class="col-sm-5">
-            <h2>{{ service.title }}</h2>
-            <p class="service-description">{{ service.description }}</p>
-            <p><strong>Price: {{ service.price }}</strong></p>
-            <p><strong>Size: {{ service.size }}</strong></p>
-            <p><strong>Production Quantity: {{ service.quantity }}</strong></p>
-            <hr>
-            <p class="service-description">{{ service.information }}</p>
-            <form method="post" action="{% url 'add_to_cart' service.id %}">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                    <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">Add</button>
-                        </span>
-                </div>
-            </form>
-        </div>
-        {% endfor %}
-    </div>
-    <!-- /.row -->
-    
-    <hr> 
 </div>
+
+<div class="container">
+    {% for service in services %}
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-7">
+            <div class="product-image" style="background-image: url('{{ MEDIA_URL }}{{ service.image }}')"></div>
+        </div>
+        <div class="service-text">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+                <h2>{{ service.title }}</h2>
+                <p class="service-description">{{ service.description }}</p>
+                <p><strong>Price: {{ service.price }}</strong></p>
+                <p><strong>Size: {{ service.size }}</strong></p>
+                <p><strong>Production Quantity: {{ service.quantity }}</strong></p>
+                <hr>
+                <p class="service-description">{{ service.information }}</p>
+                <form method="post" action="{% url 'add_to_cart' service.id %}">
+    
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                                <button class="btn btn-success" type="submit">Add</button>
+                            </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr> {% endfor %}
+</div>
+
+
 
 <div class="container-fluid" id="examples" style="text-align:center;margin-top:50px">
     <h3 class="main-header" style="margin-bottom:100px">Not that we are showing off - but look at how good we are !</h3>
     <div class="row">
-        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
-            <img src="https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/landing-page-football-logo-maker/greek-sports-logo-maker-football-768x768.png">
+        <div class="col-sm-12 col-lg-4">
+            <img src="https://placeit-assets.s3-accelerate.amazonaws.com/landing-pages/landing-page-football-logo-maker/greek-sports-logo-maker-football-768x768.png" style="width:300px;height:400px">
             <h4>Logo Design</h4>
         </div>
-        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
-            <img src="https://www.uprinting.com/blog/wp-content/uploads/2010/12/Flyer-Design-Ideas-02.png">
+        <div class="col-sm-12 col-lg-4">
+            <img src="https://www.uprinting.com/blog/wp-content/uploads/2010/12/Flyer-Design-Ideas-02.png" style="width:300px;height:400px">
             <h4>Flyer Design</h4>
         </div>
-        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
-            <img src="https://www.solopress.com/blog/wp-content/uploads/2018/09/business-cards-perforated.jpg">
+        <div class="col-sm-12 col-lg-4">
+            <img src="https://www.solopress.com/blog/wp-content/uploads/2018/09/business-cards-perforated.jpg" style="width:300px;height:400px">
             <h4>Business Cards</h4>
         </div>
     </div>
     <div class="row" style="margin-top:50px">
-        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
-            <img src="https://cdn.idevie.com/wp-content/uploads/2019/05/landingpagedesign1.jpg">
+        <div class="col-sm-12 col-lg-4">
+            <img src="https://cdn.idevie.com/wp-content/uploads/2019/05/landingpagedesign1.jpg" style="width:300px;height:400px">
             <h4>Landing page Design</h4>
         </div>
-        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
-            <img src="https://image.freepik.com/free-vector/letterhead-template-design_1142-370.jpg">
+        <div class="col-sm-12 col-lg-4">
+            <img src="https://image.freepik.com/free-vector/letterhead-template-design_1142-370.jpg" style="width:300px;height:400px">
             <h4>Letterhead Design</h4>
         </div>
-        <div class="col-xs-12 col-sm-4 col-lg-4 example-img">
-            <img src="https://images4.newscred.com/Zz1jMjFiNzcyZjExZmJkYjExNjM2MzE1ZGY5M2NkMWU2Yg==">
+        <div class="col-sm-12 col-lg-4">
+            <img src="https://images4.newscred.com/Zz1jMjFiNzcyZjExZmJkYjExNjM2MzE1ZGY5M2NkMWU2Yg==" style="width:300px;height:400px">
             <h4>Email Marketing</h4>
         </div>
     </div>
 </div>
-{% endblock %}
 
+{% endblock %}
