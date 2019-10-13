@@ -20,7 +20,9 @@ from services import urls as urls_services
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
+from notifications import urls as urls_notifications
 from services.views import all_services
+from notifications.views import all_notifications
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -31,6 +33,7 @@ urlpatterns = [
     url(r'^services/', include(urls_services)),
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
+    url(r'^notifications/', include(urls_notifications)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]
