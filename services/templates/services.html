@@ -23,6 +23,7 @@
         </div>
     </div>
 </div>
+
 <div class="container" id="services-page">
     <div class="display" id="search-btn">
         <form action="{% url 'search' %}" method="GET">
@@ -32,7 +33,7 @@
     </div>
 </div>
 
-<div class="container">
+ <div class="container">
     {% for service in services %}
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-7">
@@ -41,28 +42,27 @@
         <div class="service-text">
             <div class="col-sm-12 col-md-12 col-lg-5">
                 <h2>{{ service.title }}</h2>
-                <p class="service-description">{{ service.description }}</p>
-                <p><strong>Price: {{ service.price }}</strong></p>
-                <p><strong>Size: {{ service.size }}</strong></p>
-                <p><strong>Production Quantity: {{ service.quantity }}</strong></p>
-                <hr>
-                <p class="service-description">{{ service.information }}</p>
-                <form method="post" action="{% url 'add_to_cart' service.id %}">
-    
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                        <span class="input-group-btn">
-                                <button class="btn btn-success" type="submit">Add</button>
-                            </span>
-                    </div>
-                </form>
+            <p class="service-description">{{ service.description }}</p>
+            <p><strong>Price: {{ service.price }}</strong></p>
+            <p><strong>Size: {{ service.size }}</strong></p>
+            <p><strong>Production Quantity: {{ service.quantity }}</strong></p>
+            <hr>
+            <p class="service-description">{{ service.information }}</p>
+            <form method="post" action="{% url 'add_to_cart' service.id %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                    <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">Add</button>
+                        </span>
+                </div>
+            </form>
             </div>
         </div>
     </div>
-    <hr> {% endfor %}
-</div>
-
+    <hr> 
+    {% endfor %}
+</div> 
 
 
 <div class="container-fluid" id="examples" style="text-align:center;margin-top:50px">

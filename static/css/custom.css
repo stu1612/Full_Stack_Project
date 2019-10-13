@@ -194,7 +194,6 @@ footer {
     padding-bottom: 40px;
     border-top: 1px solid #ededed;
     color: #A9A9A9;
-
 }
 
 .icon-bar {
@@ -259,6 +258,10 @@ footer {
     word-wrap: break-word;
 }
 
+.caption .product-description{
+    height: 200px;
+}
+
 .display {
     text-align: left;
 }
@@ -282,6 +285,17 @@ footer {
 
 .service-description-cart {
     min-height: 80px;
+}
+
+
+/*-------Checkout.HTML----------*/
+
+.price-block {
+    display: flex;
+    background-color: aliceblue;
+    height: 30px;
+    font-size: 2rem;
+    margin: 30px;
 }
 
 /*--------- Review / add_review.HTML---------*/
@@ -384,6 +398,11 @@ textarea {
         width: 150px;
         height: 150px;
 }
+
+    legend {
+        width: 90%;
+        margin: auto;
+    }
     
     
 }
