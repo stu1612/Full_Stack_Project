@@ -1,4 +1,5 @@
 from django import forms
+from .models import Item
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -38,3 +39,12 @@ class UserRegistrationForm(UserCreationForm):
             raise ValidationError("Passwords do not match")
 
         return password2
+        
+
+"""User add_review logic"""
+
+class ItemForm(forms.ModelForm):
+    class Meta:
+        model=Item
+        fields=('business', 'manager', 'feedback', 'date')
+                

@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+<div class="container add_review">
+    <h2>Thank you for using our services @ Graphic Design</h2>
+    <form method="POST">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary"><a href="">Save</a></button>
+    </form>
+</div>
+{% endblock %}

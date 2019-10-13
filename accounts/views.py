@@ -4,7 +4,8 @@ from django.core.urlresolvers import reverse
 from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
-
+from .models import Item
+from .forms import ItemForm
 
 # Create your views here.
 def index(request):
@@ -73,3 +74,24 @@ def register(request):
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
+    
+
+"""A view that displays testimonial form"""
+    
+def review(request):
+    results = Item.objects.all()
+    return render(request, "review.html", {'items':results})
+    
+"""A view that manages testimonial form"""
+def add_review(request):
+    if request.method=="POST":
+        form = ItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(review)
+    
+    else:
+        form = ItemForm()
+
+    return render(request, "add_review.html", {'form': form})
+        
