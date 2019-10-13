@@ -1,5 +1,7 @@
-{% extends 'base.html' %} 
-
-{% block page_title %}Home Page{% endblock %} 
-
-{% block page_heading %}Home{% endblock %}
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+<h3>Welcome {{ user.username }}</h3>
+    <p>You are now securely logged in and ready to start browsing our graphical designs</p>
+        <button type="submit" class="btn btn-primary"><a href="{% url 'services' %}">Let's Start</a></button> {% else %}
+<h3>Goodbye</h3>
+    <p>We hope to see you again soon !</p>
+{% endif %} {% endblock %}
