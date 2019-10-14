@@ -1,22 +1,20 @@
 {% extends "base.html" %} {% load staticfiles %} {% block content %}
-
-<div class="row notification">
-    {% for notification in notifications %}
-
-    <h3 class="main-header">Hi {{ notification.user }}, please find your completed job request! An email will be sent to you shortly with a formatted version of your design to the following email address :</h3><br><br>
+<legend>Hi {{ notification.user }}, please find your completed job request! An email will be sent to you shortly with a formatted version of your design to the following email address :</legend>
+<div class="container">
     <h4 class="email-heading">{{ user.email }}</h4>
-    <div <div class="col-md-12" id="user_proj">
-        <div class="product-image" style="background-image: url('{{ MEDIA_URL }}{{ notification.image }}')"></div>
-        </a>
-    </div>
+    {% for notification in notifications %}
+        <div class="row notification">
+            <div class="col-sm-12" id="user_proj">
+                <div class="product-image" style="background-image: url('{{ MEDIA_URL }}{{ notification.image }}')"></div>
+            </div>
+        </div>
+        <div class="row notification">
+            <div class="col-sm-12">
+                <h2>{{ notification.project }}</h2>
+                <p class="service-description">{{ notification.message }}</p>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
 </div>
-<div class="row notification">
-    <div class="col-md-12">
-        <h2>{{ notification.project }}</h2>
-        <p class="service-description">{{ notification.message }}</p>
-    </div>
-</div>
-
-{% endfor %}
-
 <button type="submit" class="btn btn-primary"><a href="{% url 'services' %}">Home</a></button> {% endblock %}
