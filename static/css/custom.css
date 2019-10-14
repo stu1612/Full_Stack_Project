@@ -38,6 +38,10 @@ h6 {
     font-family: 'Raleway', sans-serif!important;
 }
 
+h2 {
+    margin-top: 0!important;
+}
+
 .btn-primary a {
     color: white;
     text-decoration: none;
@@ -376,6 +380,11 @@ textarea {
     #examples img {
         width: 50%;
     }
+    
+    h2 {
+    margin-top: 20px!important;
+}
+
 }
 
 @media only screen and (max-width: 769px) {
