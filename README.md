@@ -112,3 +112,6 @@ This is the third version of the planned project which is why various git commit
 
 This project contains code from Code Institute django project learnings - Eccommerce.  In particular, code extracted was the accounts functionality, stripe installation and JS code, cart and checkout functionality, settings.py.  Some minor changes were made but the overall code was taken used from the learning content.  
 
+# Media
+
+Images were obtained from Unsplash.com
